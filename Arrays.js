@@ -1,5 +1,21 @@
 // this file has common array manipulations in javascript, used for my blog tutorials
 
+//--------------Big O of array methods---------------------------------------------------------
+
+//  Access O(1)
+//  Push/Pop O(1)
+//  Remove or insert at the beginning O(n)
+//  Search O(n)
+//  Shift/Unshift O(n)
+//  Concat O(n)
+//  Slice O(n)
+//  Splice O(n)
+//  Sort O(n)
+//  forEach O(n)
+//  map O(n)
+//  filter O(n)
+//  reduce O(n)
+
 
 //--------------initializing arrays with values and accessing values----------------------------
 
@@ -64,7 +80,7 @@ myArray2[0].push('myVal') //adds element to the end of first inner array
 let myValPushMyArray2 = myArray2[0].push('myPushVal') //returns the count
 // console.log(myValPushMyArray2, myArray2) // 4, Array(4) [Array(4), Array(2), Array(2), Array(2)]
 
-//-------------------changing elemets in an array--------------------------------------
+//-------------------removing and changing elemets in an array--------------------------------------
 
 myArray[0] = "myFirstElement"
 // console.log(myArray)  //Array(5) ["myFirstElement", "myVal", "how", "myVal", "myPushVal"]
@@ -232,3 +248,13 @@ function reduceFunction(total, value, index, array) {
     return total + value;
 }
 // console.log(sum) //99
+
+//------------------------------searching arrays----------------------------------------------------------
+
+let numbersToSearch = [45, 4, 9, 16, 25];
+
+function findItem(item, numbersToSearch) {
+    return numbersToSearch.indexOf(item)
+};
+
+console.log(findItem(16, numbersToSearch)); // 3
