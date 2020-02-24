@@ -1,4 +1,4 @@
-//--------------Big O of array methods---------------------------------------------------------
+//--------------Big O of object methods---------------------------------------------------------
 
 //  insert O(1)
 //  remove O(1)
@@ -30,41 +30,34 @@ let person = {
 // console.log(person.fullNameFunction() + " has " + person['eyeColor'] + " eyes.");
 // console.log(person.fullNameFunction() + " has " + person.eyeColor + " eyes.");
 
-function ListAllPropertiesOfPerson(person) {
-    for (myItem in person) {
-        console.log(myItem + "  " + person[myItem]);
-    }
-}
-
-// ListAllPropertiesOfPerson(person);
-
 //------------------------------object define property----------------------------------------
 // Define object
-var obj = { counter: 0 };
+var myDefinePropertyObject = { counter: 0 };
 
 // Define setters
-Object.defineProperty(obj, "reset", {
+Object.defineProperty(myDefinePropertyObject, "reset", {
     get: function () { this.counter = 0; }
 });
-Object.defineProperty(obj, "increment", {
+Object.defineProperty(myDefinePropertyObject, "increment", {
     get: function () { this.counter++; }
 });
-Object.defineProperty(obj, "decrement", {
+Object.defineProperty(myDefinePropertyObject, "decrement", {
     get: function () { this.counter--; }
 });
-Object.defineProperty(obj, "add", {
+Object.defineProperty(myDefinePropertyObject, "add", {
     set: function (value) { this.counter += value; }
 });
-Object.defineProperty(obj, "subtract", {
+Object.defineProperty(myDefinePropertyObject, "subtract", {
     set: function (value) { this.counter -= value; }
 });
 
-// Play with the counter:
-obj.reset;
-obj.add = 5;
-obj.subtract = 1;
-obj.increment;
-obj.decrement;
+myDefinePropertyObject.add = 5;
+// myDefinePropertyObject.subtract = 1;
+// myDefinePropertyObject.increment;
+// myDefinePropertyObject.decrement;
+// myDefinePropertyObject.reset;
+
+// console.log(myDefinePropertyObject.counter)
 
 //-------------------------------------object constructor-----------------------------------
 
@@ -76,26 +69,59 @@ function Person(first, last, age, eye) {
     this.name = function () { return this.firstName + " " + this.lastName; };
 }
 
-var myFather = new Person("John", "Doe", 50, "blue");
+let obj1 = {};            // new object
+let obj2 = "";            // new primitive string
+let obj3 = 0;             // new primitive number
+let obj4 = false;         // new primitive boolean
+let obj5 = [];            // new array object
+let obj6 = /()/;          // new regexp object
+let obj7 = function () { };  // new function object
 
-console.log(myFather);
+let myFather = new Person("John", "Doe", 50, "blue");
 
-//------------------------------------built in constructors---------------------------------
-let x1 = new Object();    // A new Object object
-let x2 = new String();    // A new String object
-let x3 = new Number();    // A new Number object
-let x4 = new Boolean();   // A new Boolean object
-let x5 = new Array();     // A new Array object
-let x6 = new RegExp();    // A new RegExp object
-let x7 = new Function();  // A new Function object
-let x8 = new Date();      // A new Date object
+//console.log(myFather);
 
-// use these instead
+// -----------------------------add key value pair------------------------------------------------
 
-let x1b = {};            // new object
-var x2b = "";            // new primitive string
-var x3b = 0;             // new primitive number
-var x4b = false;         // new primitive boolean
-var x5b = [];            // new array object
-var x6b = /()/;          // new regexp object
-var x7b = function () { };  // new function object
+let keyPairObject = {};
+
+keyPairObject.myNewKey1 = "value1";
+
+keyPairObject["myNewKey2"] = "value2";
+
+// console.log(keyPairObject)
+
+// -----------------------------delete value pair------------------------------------------------
+
+delete keyPairObject.myNewKey1
+
+delete keyPairObject["myNewKey2"]
+
+// console.log(keyPairObject)
+// console.log(keyPairObject['myNewKey2'])
+
+//-----------------------------iterate over an object--------------------------------------------
+
+let interateObj = {
+    key1: "value1",
+    key2: "value2",
+    key3: "value3",
+    key4: "value4",
+    function1: function () {
+        return this.key1 + " " + this.key2;
+    },
+}
+
+function listIterateObj(obj) {
+    for (myKey in obj) {
+        console.log(myKey + "  " + obj[myKey]);
+    }
+
+}
+
+listIterateObj(interateObj);
+
+Object.values(interateObj).forEach((value, index) => { console.log(index, value) });
+
+
+
