@@ -66,7 +66,6 @@ class DoublyLinkedList {
         this.length--;
         return oldHead;
     }
-
     get(index) {
         if (index < 0 || index >= this.length) return null;
         var count, current;

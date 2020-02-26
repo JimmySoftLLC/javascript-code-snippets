@@ -1,4 +1,5 @@
-/-----------------------------simple recursion-----------------------------------------------
+//-----------------------------simple recursion-----------------------------------------------
+
 function simpleExample(num) {
     if (num <= 0) { //base case
         console.log("All done!");
