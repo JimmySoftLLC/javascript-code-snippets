@@ -1,3 +1,6 @@
+// FIFO structure --------------------------------
+// Can use an array if you want
+
 class Node {
     constructor(value) {
         this.value = value;
