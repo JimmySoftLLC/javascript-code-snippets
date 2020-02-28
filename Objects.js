@@ -114,14 +114,41 @@ let interateObj = {
 
 function listIterateObj(obj) {
     for (myKey in obj) {
-        console.log(myKey + "  " + obj[myKey]);
+        // console.log(myKey + "  " + obj[myKey]);
     }
 
 }
 
 listIterateObj(interateObj);
 
-Object.values(interateObj).forEach((value, index) => { console.log(index, value) });
+// Object.values(interateObj).forEach((value, index) => { console.log(index, value) });
+
+// -------------------------------sorting by key value----------------------------------------
+
+let myUnSortedOject = [
+    { name: 'Dude1', keyName: 'a' },
+    { name: 'Dude2', keyName: 'd' },
+    { name: 'Dude3', keyName: 'b' },
+    { name: 'Dude4', keyName: 'c' }
+]
+
+function compare(a, b) {
+    // Use toUpperCase() to ignore character casing
+    const keyA = a.keyName.toUpperCase();
+    const keyB = b.keyName.toUpperCase();
+
+    let comparison = 0;
+    if (keyA > keyB) {
+        comparison = 1;
+    } else if (keyA < keyB) {
+        comparison = -1;
+    }
+    return comparison;
+}
+
+let mySortedOject = myUnSortedOject.sort(compare);
+
+console.log(mySortedOject);
 
 
 
