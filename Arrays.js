@@ -258,3 +258,22 @@ function findItem(item, numbersToSearch) {
 };
 
 console.log(findItem(16, numbersToSearch)); // 3
+
+///------------------------------reduce-----------------------------------------------
+
+// JavaScript
+function histogram(arr) {
+    return arr.reduce((obj, item) => {
+        obj[item] = obj[item] + 1 || 1;
+        return obj;
+    }, {});
+}
+const names = ["Jeff", "Jake", "Leonard", "Ronald", "Jake", "Jeff", "Jake", "Neptune", "Jake"];
+histogram(names)
+  // {
+  //   Jake: 4,
+  //   Jeff: 2,
+  //   Leonard: 1,
+  //   Neptune: 1
+  //   Ronald: 1
+  // }
