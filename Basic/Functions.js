@@ -4,20 +4,19 @@ function myOrdinaryFunction(a, b) {
     return a * b;
 }
 
-// console.log(myOrdinaryFunction(2, 2));
+console.log(myOrdinaryFunction(1, 1));
 
-// ---------------------funtion expression-----------------------------------
+// ---------------------function expression-----------------------------------
 
 var myFunctionExpression = function (a, b) { return a * b };
 
-// console.log(myFunctionExpression(2, 2));
-
+console.log(myFunctionExpression(1, 2));
 
 // ---------------------arrow function-----------------------------------
 
 const myArrowFunction = (a, b) => { return a * b }
 
-// console.log(myArrowFunction(2, 2));
+console.log(myArrowFunction(1, 3));
 
 // -----------------------function constructor-----------------------------------
 
@@ -25,10 +24,10 @@ function myFunctionConstructor(arg1, arg2) {
     this.firstName = arg1;
     this.lastName = arg2;
     this.printStuff = function () {
-        console.log(this.firstName + " " + this.lastName)
+        return this.firstName + " " + this.lastName
     }
 }
 
-var x = new myFunctionConstructor("Dude", "Person");
+var x = new myFunctionConstructor("John", "Doe");
 
-// x.printStuff();                   
+console.log(x.printStuff());
