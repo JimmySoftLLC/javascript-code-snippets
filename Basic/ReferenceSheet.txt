@@ -1,0 +1,58 @@
+//If ---------------------------------
+if (condition) {
+} else {
+}
+
+//Switch ------------------------
+switch (expression) {
+    case x:
+        break;
+    default:
+}
+
+//Loops -----------------------------
+for (let i = 0; i < 10; i++) {
+}
+
+for (variable of iterable) {
+}
+
+while (condition) {
+}
+
+do {
+}
+while (condition);
+
+//Terniary operator-------------------------
+let myResult = condition ? exprIfTrue : exprIfFalse
+
+//Functions-----------------------------------------------
+function myOrdinaryFunction(a, b) { return a * b }
+let myFunctionExpression = function (a, b) { return a * b };
+const myArrowFunction = (a, b) => { return a * b }
+
+//Objects-----------------------------------------------
+let myObject = {}
+let myObject = {
+    prop1: "Prop1Value",
+    method1: function () {
+        return true;
+    },
+};
+
+myObject.addKey = value
+
+var key = "prop1"
+delete myObject[key]
+delete myObject["prop1"]
+delete myObject.prop1
+
+
+//Arrays-------------------------------------------------
+let myArray = []
+let myArray = [val1, val2, val3]
+myArray.pop() //removes last element
+myArray.shift() //removes first element
+myArray.push('myVal') //adds element to the end
+myArray.unshift('myVal') //adds element to the beginnng
