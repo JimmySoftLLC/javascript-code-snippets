@@ -1,17 +1,17 @@
 // simple promise
 const myPromise = new Promise((resolve, reject) => {
     if (true === true) {
-        resolve('Success')
+        resolve(true)
     }
     else {
-        reject('Failure')
+        reject(false)
     }
 })
 
-myPromise.then((message) => {
-    // console.log(message)
-}).catch((message) => {
-    // console.log(message)
+myPromise.then((result) => {
+    console.log(result)
+}).catch((result) => {
+    console.log(result)
 })
 
 //promise with a parameter sent to it just wrap it with a function
@@ -26,10 +26,10 @@ const myPromiseWithParam = (myBoolean) => {
     });
 }
 
-myPromiseWithParam(true).then(function (message) {
-    // console.log(message)
-}).catch((message) => {
-    // console.log(message)
+myPromiseWithParam(true).then(function (result) {
+    console.log(result)
+}).catch((result) => {
+    console.log(result)
 })
 
 const myPromiseWithParam1 = myPromiseWithParam
@@ -43,50 +43,50 @@ const myPromiseWithParam7 = myPromiseWithParam
 const myBoolean = true
 
 // nesting promises 
-myPromiseWithParam1(myBoolean).then(function (successMessage1) {
-    myPromiseWithParam2(successMessage1).then(function (successMessage2) {
-        myPromiseWithParam3(successMessage2).then(function (successMessage3) {
-            myPromiseWithParam4(successMessage3).then(function (successMessage4) {
-                myPromiseWithParam5(successMessage4).then(function (successMessage5) {
-                    myPromiseWithParam6(successMessage5).then(function (successMessage6) {
-                        myPromiseWithParam7(successMessage6).then(function (successMessage7) {
-                            console.log(successMessage7)
-                        }).catch((errorMessage7) => {
-                            console.log(errorMessage7)
+myPromiseWithParam1(myBoolean).then(function (successResult1) {
+    myPromiseWithParam2(successResult1).then(function (successResult2) {
+        myPromiseWithParam3(successResult2).then(function (successResult3) {
+            myPromiseWithParam4(successResult3).then(function (successResult4) {
+                myPromiseWithParam5(successResult4).then(function (successResult5) {
+                    myPromiseWithParam6(successResult5).then(function (successResult6) {
+                        myPromiseWithParam7(successResult6).then(function (successResult7) {
+                            console.log(successResult7)
+                        }).catch((errorResult7) => {
+                            console.log(errorResult7)
                         })
-                    }).catch((errorMessage6) => {
-                        console.log(errorMessage6)
+                    }).catch((errorResult6) => {
+                        console.log(errorResult6)
                     })
-                }).catch((errorMessage5) => {
-                    console.log(errorMessage5)
+                }).catch((errorResult5) => {
+                    console.log(errorResult5)
                 })
-            }).catch((errorMessage4) => {
-                console.log(errorMessage4)
+            }).catch((errorResult4) => {
+                console.log(errorResult4)
             })
-        }).catch((errorMessage3) => {
-            console.log(errorMessage3)
+        }).catch((errorResult3) => {
+            console.log(errorResult3)
         })
-    }).catch((errorMessage2) => {
-        console.log(errorMessage2)
+    }).catch((errorResult2) => {
+        console.log(errorResult2)
     })
-}).catch((errorMessage1) => {
-    console.log(errorMessage1)
+}).catch((errorResult1) => {
+    console.log(errorResult1)
 })
 
-// myPromiseWithParam1(myBoolean).then(function (successMessage1) {
-//     return myPromiseWithParam2(successMessage1)
-// }).then(function (successMessage2) {
-//     return myPromiseWithParam3(successMessage2)
-// }).then(function (successMessage3) {
-//     return myPromiseWithParam4(successMessage3)
-// }).then(function (successMessage4) {
-//     return myPromiseWithParam5(successMessage4)
-// }).then(function (successMessage5) {
-//     return myPromiseWithParam6(successMessage5)
-// }).then(function (successMessage6) {
-//     return myPromiseWithParam7(successMessage6)
-// }).then(function (successMessage7) {
-//     console.log(successMessage7)
-// }).catch((errorMessage) => {
-//     console.log(errorMessage)
-// })
+myPromiseWithParam1(myBoolean).then(function (successResult1) {
+    return myPromiseWithParam2(successResult1)
+}).then(function (successResult2) {
+    return myPromiseWithParam3(successResult2)
+}).then(function (successResult3) {
+    return myPromiseWithParam4(successResult3)
+}).then(function (successResult4) {
+    return myPromiseWithParam5(successResult4)
+}).then(function (successResult5) {
+    return myPromiseWithParam6(successResult5)
+}).then(function (successResult6) {
+    return myPromiseWithParam7(successResult6)
+}).then(function (successResult7) {
+    console.log(successResult7)
+}).catch((errorResult) => {
+    console.log(errorResult)
+})
