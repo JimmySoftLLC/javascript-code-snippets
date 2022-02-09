@@ -1,5 +1,5 @@
 // simple promise
-const myPromise = new Promise((resolve, reject) => {
+const promiseSimple = new Promise((resolve, reject) => {
     if (true === true) {
         resolve(true)
     }
@@ -8,14 +8,8 @@ const myPromise = new Promise((resolve, reject) => {
     }
 })
 
-myPromise.then((result) => {
-    console.log(result)
-}).catch((result) => {
-    console.log(result)
-})
-
-//promise with a parameter sent to it just wrap it with a function
-const myPromiseWithParam = (myBoolean) => {
+// promise with a parameter
+const promiseWithParam = (myBoolean) => {
     return new Promise(function (resolve, reject) {
         if (myBoolean === true) {
             resolve(true)
@@ -26,30 +20,60 @@ const myPromiseWithParam = (myBoolean) => {
     });
 }
 
-myPromiseWithParam(true).then(function (result) {
+// async promise with a parameter
+const asyncPromiseWithParam = async (myBoolean) => {
+    return new Promise(function (resolve, reject) {
+        if (myBoolean === true) {
+            resolve(true)
+        }
+        else {
+            reject(false)
+        }
+    });
+}
+
+const promiseWithParam1 = promiseWithParam
+const promiseWithParam2 = promiseWithParam
+const promiseWithParam3 = promiseWithParam
+const promiseWithParam4 = promiseWithParam
+const promiseWithParam5 = promiseWithParam
+const promiseWithParam6 = promiseWithParam
+const promiseWithParam7 = promiseWithParam
+
+const asyncPromiseWithParam1 = asyncPromiseWithParam
+const asyncPromiseWithParam2 = asyncPromiseWithParam
+const asyncPromiseWithParam3 = asyncPromiseWithParam
+const asyncPromiseWithParam4 = asyncPromiseWithParam
+const asyncPromiseWithParam5 = asyncPromiseWithParam
+const asyncPromiseWithParam6 = asyncPromiseWithParam
+const asyncPromiseWithParam7 = asyncPromiseWithParam
+
+const myBoolean = false
+
+//  now use the promises as follows ---------------------------------
+
+// Simple
+promiseSimple.then((result) => {
     console.log(result)
 }).catch((result) => {
     console.log(result)
 })
 
-const myPromiseWithParam1 = myPromiseWithParam
-const myPromiseWithParam2 = myPromiseWithParam
-const myPromiseWithParam3 = myPromiseWithParam
-const myPromiseWithParam4 = myPromiseWithParam
-const myPromiseWithParam5 = myPromiseWithParam
-const myPromiseWithParam6 = myPromiseWithParam
-const myPromiseWithParam7 = myPromiseWithParam
-
-const myBoolean = true
+// promise with parameter
+promiseWithParam(true).then(function (result) {
+    console.log(result)
+}).catch((result) => {
+    console.log(result)
+})
 
 // nesting promises 
-myPromiseWithParam1(myBoolean).then(function (successResult1) {
-    myPromiseWithParam2(successResult1).then(function (successResult2) {
-        myPromiseWithParam3(successResult2).then(function (successResult3) {
-            myPromiseWithParam4(successResult3).then(function (successResult4) {
-                myPromiseWithParam5(successResult4).then(function (successResult5) {
-                    myPromiseWithParam6(successResult5).then(function (successResult6) {
-                        myPromiseWithParam7(successResult6).then(function (successResult7) {
+promiseWithParam1(myBoolean).then(function (successResult1) {
+    promiseWithParam2(successResult1).then(function (successResult2) {
+        promiseWithParam3(successResult2).then(function (successResult3) {
+            promiseWithParam4(successResult3).then(function (successResult4) {
+                promiseWithParam5(successResult4).then(function (successResult5) {
+                    promiseWithParam6(successResult5).then(function (successResult6) {
+                        promiseWithParam7(successResult6).then(function (successResult7) {
                             console.log(successResult7)
                         }).catch((errorResult7) => {
                             console.log(errorResult7)
@@ -73,20 +97,39 @@ myPromiseWithParam1(myBoolean).then(function (successResult1) {
     console.log(errorResult1)
 })
 
-myPromiseWithParam1(myBoolean).then(function (successResult1) {
-    return myPromiseWithParam2(successResult1)
+// flatten .thens
+promiseWithParam1(myBoolean).then(function (successResult1) {
+    return promiseWithParam2(successResult1)
 }).then(function (successResult2) {
-    return myPromiseWithParam3(successResult2)
+    return promiseWithParam3(successResult2)
 }).then(function (successResult3) {
-    return myPromiseWithParam4(successResult3)
+    return promiseWithParam4(successResult3)
 }).then(function (successResult4) {
-    return myPromiseWithParam5(successResult4)
+    return promiseWithParam5(successResult4)
 }).then(function (successResult5) {
-    return myPromiseWithParam6(successResult5)
+    return promiseWithParam6(successResult5)
 }).then(function (successResult6) {
-    return myPromiseWithParam7(successResult6)
+    return promiseWithParam7(successResult6)
 }).then(function (successResult7) {
     console.log(successResult7)
 }).catch((errorResult) => {
     console.log(errorResult)
 })
+
+// async await
+const asyncFunction = async (myBoolean) => {
+    try {
+        const successResult1 = await asyncPromiseWithParam1(myBoolean)
+        const successResult2 = await asyncPromiseWithParam2(successResult1)
+        const successResult3 = await asyncPromiseWithParam3(successResult2)
+        const successResult4 = await asyncPromiseWithParam4(successResult3)
+        const successResult5 = await asyncPromiseWithParam5(successResult4)
+        const successResult6 = await asyncPromiseWithParam6(successResult5)
+        const successResult7 = await asyncPromiseWithParam7(successResult6)
+        console.log(successResult7)
+    } catch (errorResult) {
+        console.log(errorResult)
+    }
+}
+
+asyncFunction(myBoolean)
