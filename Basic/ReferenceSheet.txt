@@ -52,7 +52,15 @@ delete myObject.prop1
 //Arrays-------------------------------------------------
 let myArray = []
 let myArray = [val1, val2, val3]
-myArray.pop() //removes last element
-myArray.shift() //removes first element
-myArray.push('myVal') //adds element to the end
-myArray.unshift('myVal') //adds element to the beginnng
+let myArray = new Array(val1, val2, val3)
+
+array.length // outer array
+array[0].length // inner array
+
+myArray.pop() //removes last
+myArray.shift() //removes first
+myArray.push('myVal') //adds to end
+myArray.unshift('myVal') //adds to beginning
+
+O(1): Access, Push, Pop 
+O(n): shift, unshift, search, concat, slice, splice, forEach, map, filter, reduce
