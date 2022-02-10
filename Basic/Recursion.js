@@ -7,10 +7,11 @@ function simpleExample(num) {
     }
     console.log(num);
     num--;
+
     simpleExample(num); //recursive call
 }
 
-console.log(simpleExample(3))
+// console.log(simpleExample(3))
 
 //-------------------------------helpler recursion--------------------------------------------
 
@@ -35,4 +36,13 @@ function helperMethodReturnOdd(arr) {
     return result;
 }
 
-console.log(helperMethodReturnOdd([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+// console.log(helperMethodReturnOdd([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
+//-------------------------------reverse string-------------------------------------------------
+
+const reverseString = (str) => {
+    console.log(str)
+    return str ? reverseString(str.substr(1)) + str[0] : str;
+};
+
+console.log(reverseString('hello world!'));

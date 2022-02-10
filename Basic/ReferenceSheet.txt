@@ -24,7 +24,7 @@ do {
 }
 while (condition);
 
-//Terniary operator-------------------------
+//Ternary operator-------------------------
 let myResult = condition ? exprIfTrue : exprIfFalse
 
 //Functions-----------------------------------------------
